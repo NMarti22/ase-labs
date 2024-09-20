@@ -1,7 +1,6 @@
 plugins {
     java
     jacoco
-    application
 }
 
 java.toolchain {
@@ -18,6 +17,8 @@ val log4jVersion = "2.23.1"
 val junitVersion = "5.10.0"
 
 dependencies {
+    implementation(project(":lib"))
+    implementation(project(":logic"))
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
     implementation("info.picocli:picocli:$picoCliVersion")
 
@@ -40,6 +41,3 @@ tasks {
     }
 }
 
-application {
-    mainClass = "hu.bme.mit.ase.shingler.similarity.SimilarityApp"
-}
